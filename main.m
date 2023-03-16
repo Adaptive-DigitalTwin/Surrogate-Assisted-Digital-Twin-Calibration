@@ -5,12 +5,10 @@ x0 = [1.5, 2.5];
 %tru_sol_x0 = [2.0, 3.33333, 7.0, 7.0, 0.66667];
 
 calibration_data_type = {'voltage', 'normal current density'};
-%calibration_data_type = {'voltage'};
-%calibration_data_type = {'voltage', 'current density', 'Z_ELECTRIC_FIELD'};
 
 metric = 'nmsq';
 
-meas_dir = "C:\Users\msapkota\EXPERIMENT\DOE_nd_data_generation\Multilinear_pol_curves\Parameter_BARE_Zone1\Measurement_results3";
+meas_dir = "D:\DOE_nd_data_generation\Multilinear_pol_curves\Parameter_BARE_Zone1\Measurement_results3";
 
 meas_data_Internal_Points = csvread(fullfile(meas_dir, 'Internal_Points.csv'),1,1);
 
@@ -19,14 +17,9 @@ IPs_IDs = meas_data_Internal_Points(:,1);
 %IPs_IDs1 = MPs_IDs(1:4:end);
 
 IPs_IDs1 = [32866,32886,32870,32874,32882,32846,32850,32878,32854   32858,32890,32862];
-%IPs_IDs1 = sort(IPs_IDs1);
 
-%IPs_IDs1 = [32846,32850,32854,32858,32862,32866,32870,32874,32878,32882,32886,32890];
-%MP_IDs_normal_current_density = [1225, 4270, 925, 7870, 3709];
 
-%IDs_current_density = [14390, 7400, 4060, 16000, 19860, 23802];
 IDs_current_density = [ 7400, 16000, 19860, 23802];
-%IDs_current_density = [14390,  4060, 16000, 19860];
 
 IDs = {py.list(IPs_IDs1), py.list(IDs_current_density)};
 IDs_mat_arr = {IPs_IDs1, IDs_current_density};
@@ -36,27 +29,16 @@ IDs_types = {'Internal Points', 'Mesh Points'};
 %IDs = meas_data_Internal_Points(:,1);
 
 DOE_range1 = [1.0, 2.5; 3.0, 3.8]; 
-%DOE_range2 = [1.4, 2.5; 2.6, 3.8];
-DOE_range3 = [1.8, 2.8; 2.2, 3.7];
 
-
-DOE_range2 = zeros(size(DOE_range1));
-for i = 1:size(DOE_range2,1)
-    quan = quantile(DOE_range1(i,:),4);
-    DOE_range2(i,:) = quan(2:3);
-end
-%}
 %DOE experiment for 2 varaibles using Central Composite Design
 Central_composite_points = ccdesign(2, 'type', 'inscribed', 'center' , 1);
 
 DOE_sample_points1 = reverse_normalization(Central_composite_points, DOE_range1);
-DOE_sample_points2 = reverse_normalization(Central_composite_points, DOE_range2);
-%DOE_sample_points3 = reverse_normalization(Central_composite_points, DOE_range3);
 
 parameters_np_array1 = convert_arr_to_python_2d_list(DOE_sample_points1);
 %DOE_sample_points = [DOE_sample_points ;reverse_normalization(Central_composite_points, DOE_range2)];
 %%
-root_folder = 'C:\Users\msapkota\EXPERIMENT\DOE_nd_data_generation\Multilinear_pol_curves\Parameter_BARE_Zone1';
+root_folder = 'D:\DOE_nd_data_generation\Multilinear_pol_curves\Parameter_BARE_Zone1';
 
 simulation_seed_folder = fullfile(root_folder,'Initial_files');
 %simulation_seed_folder  = "C:\Users\msapkota\EXPERIMENT\DOE_nd_data_generation\Model_updated_linear\Parameter_BARE_Zone1\Initial_files1";
@@ -72,13 +54,13 @@ surrogates = response_surface(DOE_sample_points1, snapshots, 2);
 %%
 testing_par = [1.49, 3.21];
 
-test_dict =  py.BEASY_IN_OUT2.get_response_data_for_IDs_and_input_parameters(parameters,parameters, testing_par, simulation_seed_folder, collection_dir, py.list(calibration_data_type), py.list(IDs), py.list(IDs_types));
+test_dict =  py.BEASY_IN_OUT1.get_response_data_for_IDs_and_input_parameters(parameters, testing_par, simulation_seed_folder, collection_dir, py.list(calibration_data_type), py.list(IDs), py.list(IDs_types));
 
 test_simulation_data = convert_pydict2data(test_dict,1);
 
 test_surrogate_output = output_from_surrogates(testing_par, surrogates,[length(IDs{1}), length(IDs{2})]); 
 
-normalised_mean_sq_diff(test_simulation_data, test_surrogate_output, calibration_data_type, [0.66 0.33])
+normalised_mean_sq_diff(test_simulation_data, test_surrogate_output, calibration_data_type, [2 1])
 
 %%
 figure;
@@ -101,18 +83,18 @@ xlabel(strcat(IDs_types{data_count}, ' IDs'));
 
 
 %%
-calib_dir = fullfile(root_folder,'Calibration_data2');
+calib_dir = fullfile(root_folder,'Calibration_data');
 
 calib_data_file_err_inc = 'data_with_error_MP_IDs_Ncd.xlsx';
 
-
+%{
 if ~isfile(fullfile(calib_dir, calib_data_file_err_inc))
     all_position_dict = py.BEASY_IN_OUT1.get_output_data_for_IDs_from_simulation_folder(calib_dir, 'BU_Jacket_newCurves', py.list(calibration_data_type),  py.list({py.list(IPs_IDs), py.list(IDs_current_density)}), py.list(IDs_types));
     all_position_data = convert_pydict2data(all_position_dict,0);
     introduce_error_and_write_file( {IPs_IDs, IDs_current_density.'},all_position_data, calib_dir, calib_data_file_err_inc,1);
 end
 %model_out = output_from_surrogates([2.0, 3.0], surrogates, [17,6]);
-
+%}
 calib_data_inc_error = data_from_tables2(fullfile(calib_dir, calib_data_file_err_inc), IDs_mat_arr, 3);
 calib_data_no_error = py.BEASY_IN_OUT1.get_output_data_for_IDs_from_simulation_folder(calib_dir, 'BU_Jacket_newCurves', py.list(calibration_data_type),  py.list(IDs), py.list(IDs_types));
 calib_data_no_error = convert_pydict2data(calib_data_no_error,0);
@@ -134,9 +116,12 @@ ylabel('Sea-water conductivity');
 
 testing_par_value = [1.99, 3.34];
 
-solution_dict =  py.BEASY_IN_OUT1.get_response_data_for_IDs_and_input_parameters(parameters, testing_par_value, simulation_seed_folder, collection_dir, py.list(calibration_data_type), py.list(IDs), py.list(IDs_types));
 
-solution_data = convert_pydict2data(solution_dict,1);
+    solution_dict =  py.BEASY_IN_OUT1.get_response_data_for_IDs_and_input_parameters(parameters, testing_par_value, simulation_seed_folder, collection_dir, py.list(calibration_data_type), py.list(IDs), py.list(IDs_types));
+
+    solution_data = convert_pydict2data(solution_dict,1);
+
+    normalised_mean_sq_diff(solution_data, calib_data_inc_error, calibration_data_type, [2 1])
 
 
 %%
