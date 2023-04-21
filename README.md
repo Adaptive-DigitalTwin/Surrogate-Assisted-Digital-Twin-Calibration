@@ -1,6 +1,6 @@
 # GitHub README.md
 
-This is a MATLAB project that uses `BEASY_IN_OUT1` module to generate simulation data, calibrate a response surface, and evaluate the accuracy of the surrogate model by comparing it with simulation data. 
+This is a MATLAB project that uses `BEASY_IN_OUT1` module to generate simulation data, and the generated code using MATLAB tools to generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
 
 ## Usage
 
