@@ -8,16 +8,9 @@ calibration_data_type = {'voltage', 'normal current density'};
 
 metric = 'nmsq';
 
-meas_dir = "D:\DOE_nd_data_generation\Multilinear_pol_curves\Parameter_BARE_Zone1\Measurement_results3";
-
-meas_data_Internal_Points = csvread(fullfile(meas_dir, 'Internal_Points.csv'),1,1);
-
-IPs_IDs = meas_data_Internal_Points(:,1);
-
 %IPs_IDs1 = MPs_IDs(1:4:end);
 
 IPs_IDs1 = [32866,32886,32870,32874,32882,32846,32850,32878,32854   32858,32890,32862];
-
 
 IDs_current_density = [ 7400, 16000, 19860, 23802];
 
@@ -145,40 +138,6 @@ end
 xlabel(strcat(IDs_types{data_count}, ' IDs'));
 %}
 %%
-%solution_points = [0.02 0.02; 0.085 0.06; 0.145 0.105];
-figure;
-%scatter( previous_sample_points(:,1),  previous_sample_points(:,2), 'filled');
-
-scatter( DOE_sample_points1(:,1),  DOE_sample_points1(:,2), 'filled');
-hold on;
-%scatter( DOE_sample_points20(:,1),  DOE_sample_points20(:,2), 'filled', 'g');
-%scatter( DOE_sample_points20(1:4,1),  DOE_sample_points20(1:4,2), 'filled', 'g');
-%scatter(  added_sample_Points(:,1),  added_sample_Points(:,2), 'filled', 'g');
-testing_pars = [1.49, 3.21; 1.9 3.6];
-scatter( testing_pars(:,1), testing_pars(:,2), 'filled', 'c');
-
-%scatter(solution_points(:,1), solution_points(:,2), 'filled','c');
-xlabel('Material 1 related p-value');
-ylabel('Sea-water conductivity (Siemens/m)');
-
-grid on;
-%%
-figure;
-
-ax = gca;
-
-files_name = 'BU_Jacket_newCurves';
-
-data_idx = 2;
-
-response_plot_3d(ax, calib_data_inc_error, calib_data_inc_error, data_idx, calibration_data_type{data_idx},IDs_types{data_idx}, files_name, calib_dir)
-    
-hold on;
-
-%response_plot_3d(ax, calib_data_inc_error, calib_data_inc_error, 2, 'current density','Mesh Points', files_name, calib_dir, 'g')
-
-%%
-
 
 
 function de_normaised_data = reverse_normalization(normalised_data, value_ranges)
