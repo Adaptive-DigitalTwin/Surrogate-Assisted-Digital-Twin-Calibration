@@ -29,9 +29,11 @@ This project requires the following MATLAB modules:
 
 - `BEASY_IN_OUT1`: User built python module to obtain and modify Input-Output dataset to the BEASY model.
 - `ccdesign` 
+- `fit`
 
 ## References
 
 For more information on the modules used in this project, please refer to the following resources:
 
 - `ccdesign`: [https://www.mathworks.com/help/stats/ccdesign.html](https://www.mathworks.com/help/stats/ccdesign.html)
+- `fit` : [https://uk.mathworks.com/help/curvefit/fit.html](https://uk.mathworks.com/help/curvefit/fit.html)
