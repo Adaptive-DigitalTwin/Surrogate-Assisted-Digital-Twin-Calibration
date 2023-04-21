@@ -30,7 +30,7 @@ This project requires the following MATLAB (or external) modules:
 - `BEASY_IN_OUT1 (python-based)`: User built python module to obtain and modify Input-Output dataset to the BEASY model.
 - `ccdesign` 
 - `fit`
-- `PYTHON software` (installed in the system)
+- `PYTHON software with the packages numpy, os, pandas, shutil and re` (should be installed in the system)
 
 ## References
 
