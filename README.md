@@ -13,7 +13,10 @@ To run the code, first provide the necessary inputs to the following variables:
 - `IDs_types`: A cell array of strings that contains the types of the data IDs (IDs types are given in the simulation files, such as 'Internal Points' , 'Mesh Points' , 'Element Points') .
 - `DOE_range1`: A 2x2 matrix that specifies the range of the DOE experiment for two variables.
 - `root_folder`: A string that specifies the root folder for storing simulation and calibration data.
-- `simulation_seed_folder`: A string that specifies the folder that contains the initial simulation files.
+- `simulation_seed_folder`: A string that specifies the folder that contains the initial simulation files, this should contains following 3 files incase of BEASY related experiments:
+-     .mat_cp (it holds the material related polarsation behaviour)
+-     .dat (It holds the strucutre geomertical data including the meshing and their co-ordinates)
+-     .bat (This the the simulation running file, which once runs by taking the above two files generates the output by claling the BEASY software)
 - `collection_dir`: A string that specifies the folder for storing simulation results.
 - `testing_par`: A vector of parameter values for testing the surrogate model.
 - `calib_dir`: A string that specifies the folder that contains the calibration data.
