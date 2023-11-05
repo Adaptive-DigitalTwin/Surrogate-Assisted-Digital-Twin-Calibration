@@ -2,6 +2,8 @@
 
 This is a MATLAB project that uses `BEASY_IN_OUT1` module to generate simulation data, and the generated code using MATLAB tools to generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
 
+Most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB 'main.mlx' file, however few more details with categorisation of the requirements are provided below: 
+
 ## Usage
 
 To run the code, first provide the necessary inputs to the following variables:
