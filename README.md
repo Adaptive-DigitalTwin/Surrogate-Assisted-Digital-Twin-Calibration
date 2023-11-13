@@ -1,8 +1,8 @@
 # GitHub README.md
 
-This project follows the similar parameter calibration problem https://github.com/Adaptive-DigitalTwin/Simulator-based-Digital-Twin , but with different approach. This MATLAB project utilises simulation data and MATLAB tools to generate a surrogate (response surface), evaluate the accuracy of the surrogate model. Then the surrogate is used to find the solution parameter based upon the calibration data provided, and plot the results. 
+This project follows the similar parameter calibration problem https://github.com/Adaptive-DigitalTwin/Simulator-based-Digital-Twin , but with different approach. This MATLAB project utilises simulation data and MATLAB tools to collect data, generate surrogate models (response surface) and evaluate the accuracy of the surrogate model(s). Then the surrogate(s) is(are) used to find the solution parameter based upon the calibration data provided. 
 
-Most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB _'main.mlx'_ file, however few more details with categorisation of the requirements are provided below: 
+The experiment related procedures are described into the thesis chapter, but also in the MATLAB _'main.mlx'_ file, however few more details with categorisation of the requirements are provided below: 
 
 #### Note: 
 This experiment utilises the _Cathodic-Protection (CP) Model_ which is constructed using the _BEASY software  (V21)_. As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following requirements should be adjusted accordingly.
