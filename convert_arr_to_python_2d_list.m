@@ -8,7 +8,7 @@ if isequal(size(array_in,2),1)
     end
 else
     for i = 1:size(array_in,1)
-        temp_cell{i} = py.list(array_in(i,:));
+        temp_cell{i} = py.list(num2cell(array_in(i,:)));
     end
 end
 
