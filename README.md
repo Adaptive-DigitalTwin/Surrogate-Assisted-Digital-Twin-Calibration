@@ -5,7 +5,7 @@ This is a MATLAB project that uses `BEASY_IN_OUT1` module to generate simulation
 Most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB 'main.mlx' file, however few more details with categorisation of the requirements are provided below: 
 
 #### Note: 
-This experiment utilises the Cathodic-Protection (CP) Model which is constructed using the BEASY software. As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following input should be adjusted accordingly.
+This experiment utilises the Cathodic-Protection (CP) Model which is constructed using the BEASY software  (V21). As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following input should be adjusted accordingly.
 
 
 ## Usage
