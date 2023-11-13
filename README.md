@@ -26,7 +26,7 @@ To run the code, first provide the necessary inputs to the following variables:
 - `calib_data_no_error`: A dictionary that contains the calibration data without error .
 - `calib_data_inc_error`: A cell array of matrices that contains the calibration data with error.
 
-After providing the necessary inputs, run the code in the `main.m` file. The code will generate simulation data, generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
+After providing the necessary inputs, run the code in the `main.mlx` file step by step. The code will generate simulation data, generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
 
 ## Dependencies
 
