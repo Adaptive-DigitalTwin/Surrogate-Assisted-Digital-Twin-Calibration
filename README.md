@@ -1,16 +1,16 @@
 # GitHub README.md
 
-This is a MATLAB project that uses `BEASY_IN_OUT1` module to generate simulation data, and the generated code using MATLAB tools to generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
+This is a MATLAB project that uses _`BEASY_IN_OUT1`_ module to generate simulation data, and the generated code using MATLAB tools to generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
 
-Most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB 'main.mlx' file, however few more details with categorisation of the requirements are provided below: 
+Most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB _'main.mlx'_ file, however few more details with categorisation of the requirements are provided below: 
 
 #### Note: 
-This experiment utilises the Cathodic-Protection (CP) Model which is constructed using the BEASY software  (V21). As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following requirements should be adjusted accordingly.
+This experiment utilises the _Cathodic-Protection (CP) Model_ which is constructed using the _BEASY software  (V21)_. As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following requirements should be adjusted accordingly.
 
 
 ## Usage
 
-To run the code, first provide the necessary inputs into the 'main.mlx' file associated with the following variables:
+To run the code, first provide the necessary inputs into the _'main.mlx'_ file associated with the following variables:
 
 - `parameters`: A cell array of strings that contains the names of the parameters of interest.
 - `calibration_data_type`: A cell array of strings that contains the types of calibration data (for example the array could contain one or few of from these: 'voltage', 'normal current density' or 'electric field')
