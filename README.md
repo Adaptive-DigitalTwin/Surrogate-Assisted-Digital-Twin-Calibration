@@ -1,6 +1,6 @@
 # GitHub README.md
 
-This is a MATLAB project that uses _`BEASY_IN_OUT1`_ module to generate simulation data, and the generated code using MATLAB tools to generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
+This project follows the similar parameter calibration problem https://github.com/Adaptive-DigitalTwin/Simulator-based-Digital-Twin , but with different approach. This MATLAB project utilises simulation data and MATLAB tools to generate a surrogate (response surface), evaluate the accuracy of the surrogate model. Then the surrogate is used to find the solution parameter based upon the calibration data provided, and plot the results. 
 
 Most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB _'main.mlx'_ file, however few more details with categorisation of the requirements are provided below: 
 
