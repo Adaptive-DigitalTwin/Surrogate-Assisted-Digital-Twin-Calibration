@@ -6,7 +6,7 @@ Most of the experiment related procedure are already described into the thesis c
 
 ## Usage
 
-To run the code, first provide the necessary inputs in into the main.mlx file associated with the following variables:
+To run the code, first provide the necessary inputs into the 'main.mlx' file associated with the following variables:
 
 - `parameters`: A cell array of strings that contains the names of the parameters of interest.
 - `calibration_data_type`: A cell array of strings that contains the types of calibration data (for example the array could contain one or few of from these: 'voltage', 'normal current density' or 'electric field')
