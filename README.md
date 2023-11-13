@@ -5,7 +5,7 @@ This is a MATLAB project that uses `BEASY_IN_OUT1` module to generate simulation
 Most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB 'main.mlx' file, however few more details with categorisation of the requirements are provided below: 
 
 #### Note: 
-This experiment utilises the Cathodic-Protection (CP) Model which is constructed using the BEASY software  (V21). As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following input should be adjusted accordingly.
+This experiment utilises the Cathodic-Protection (CP) Model which is constructed using the BEASY software  (V21). As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following requirements should be adjusted accordingly.
 
 
 ## Usage
@@ -30,11 +30,11 @@ To run the code, first provide the necessary inputs into the 'main.mlx' file ass
 - `calib_data_no_error`: A dictionary that contains the calibration data without error .
 - `calib_data_inc_error`: A cell array of matrices that contains the calibration data with error.
 
-After providing the necessary inputs, run the code in the `main.mlx` file step by step. The code will generate simulation data, generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
+After providing the necessary inputs, run the code in the _`main.mlx`_ file step by step. The code will generate simulation data, generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
 
 ## Output 
 
-The aim of the experiment is to obtain the solution parameters which will be obtained as _'xsol'_ after the experiment. But also the additional process data can be visualised and seen in the _'main.mlx'_ file itselt while the simulation data will be stored into the collection directory.
+The aim of the experiment is to obtain the solution parameters which will be obtained as _'min_out_pos1'_ after the experiment. But also the additional process data can be visualised and seen in the _'main.mlx'_ file itself while the simulation data will be stored into the collection directory. The performance of model with solution parameter is also analysed after obtaining the solution.
 
 
 ## Dependencies
